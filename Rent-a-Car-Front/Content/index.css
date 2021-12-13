@@ -1,0 +1,41 @@
+﻿body {
+}
+.jumbotron{
+
+}
+.fast-rent-section {
+    text-align: center;
+    display: flex;
+    color: rgb(153,153,153);
+    font-size: 16px;
+    position: relative;
+    align-items: center;
+    justify-content:center;
+    border-radius: 10px;
+    background-color: #1089FF;
+}
+.request-form {
+    padding: 30px;
+    background-color:rgba(0,0,0,0);
+}
+
+.form-control::-webkit-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+.form-control {
+    background-color: rgba(255, 255, 255, 0.10);
+    color: white;
+    font-size:12px;
+}
+.form-double-item .form-group {
+    padding:0;
+}
+.mr-2{margin-right:2px;}
+.ml-2{margin-left:2px;}
+
