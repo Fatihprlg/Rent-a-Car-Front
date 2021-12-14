@@ -97,6 +97,30 @@
     display: flex;
     justify-content: flex-end;
 }
+.login-sec {
+    text-align: center;
+    display: flex;
+    color: rgb(153,153,153);
+    font-size: 16px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: rgba(16,137,255,0.85);
+    margin:150px auto;
+    max-width:50%;
+}
+.login-bg {
+    background-image: url('../Images/login-bg.jpeg');
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 103%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-repeat: no-repeat;
+}
 @media (max-width:960px){
     .services-wrap {
         display:none;
