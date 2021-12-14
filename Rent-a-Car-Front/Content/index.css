@@ -66,8 +66,47 @@
 .ml-2 {
     margin-left: 2px;
 }
-@media (max-width:1200px){
+
+.about-section {
+    background-color: #01D28E;
+    padding: 20px 40px;
+    margin: 50px 0 20px 0;
+    color: white;
+    position: relative;
+    max-width: 50%;
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    text-align:right;
+    border-radius:10px;
+}
+.about-img {
+    background-image: url(../Images/car-bg-2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-height: 200px;
+    width: 100%;
+    height: 200px;
+    z-index: -1;
+    position: absolute;
+    right: 0;
+    background-attachment: fixed;
+    margin-top: 150px;
+}
+.abt-cont {
+    display: flex;
+    justify-content: flex-end;
+}
+@media (max-width:960px){
     .services-wrap {
         display:none;
+    }
+    .about-section {
+        max-width: 100%;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .abt-cont{
+        justify-content:center;
     }
 }
