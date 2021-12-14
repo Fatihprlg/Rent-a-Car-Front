@@ -4,6 +4,8 @@
 }
 .icon {
     color: #1089FF;
+    width:5em!important;
+    height:2em!important;
 }
 .btn-success {
     background-color: #01D28E;

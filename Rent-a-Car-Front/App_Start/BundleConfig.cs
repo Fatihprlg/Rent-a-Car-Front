@@ -20,12 +20,14 @@ namespace Rent_a_Car_Front
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/FontAwesome/js/all.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
-                      "~/Content/index.css"));
+                      "~/Content/index.css",
+                      "~/Content/FontAwesome/css/all.min.css"));
         }
     }
 }
