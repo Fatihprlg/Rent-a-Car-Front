@@ -1,6 +1,18 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    width:100%;
+}
+.icon {
+    color: #1089FF;
+}
+.btn-success {
+    background-color: #01D28E;
+    border-color: #01D28E;
+}
+.btn-primary {
+    background-color: #1089FF;
+    border-color: #1089FF;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -22,10 +34,41 @@ select,
 textarea {
     max-width: 280px;
 }
+.icon-bar{
+    color:black;
+}
 .navbar.transparent.navbar-inverse{
-    background: rgba(0,0,0,0.4);
+    background: rgba(255, 255, 255, 0.4);
     border:none;
 }
 .navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand{
     color: black;
+}
+.footer {
+    display: flex;
+    flex-direction: column;
+    background-color: #1089FF;
+    color: white;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+.footer ul{padding:0;}
+.footer ul li{
+    list-style:none;
+    text-decoration:none;
+}
+.footer a{
+    text-decoration:none;
+    color:whitesmoke;
+}
+.footer .container{
+    display:flex;
+    flex-direction:row;
+
+}
+.footer-section{
+    display:flex;
+    flex-direction:column;
+    padding:20px;
 }
