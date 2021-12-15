@@ -297,6 +297,7 @@
     background-color:transparent;
     border-color:transparent;
     color:black;
+    display:none;
 }
 .collapse-btn:hover {
     color: white;
@@ -318,6 +319,8 @@
     .car-filter {
         background-color: #1089ff;
         flex-direction: column;
-
+    }
+    .collapse-btn{
+        display:block;
     }
 }
