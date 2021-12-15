@@ -1,45 +1,42 @@
-﻿
-@{
-    ViewBag.Title = "Vehicles";
+﻿@{
+    ViewBag.Title = "Araçlar";
 }
 <div class="container filter-container">
     <div>
         <button type="button" class="collapse-btn" data-toggle="collapse" data-target="#filter-collapse">
             <i class="fas fa-minus-square"></i>
         </button>
-
     </div>
 
-    <div class="navbar-collapse collapse" id="filter-collapse">
+    <div class=" navbar-collapse collapse" id="filter-collapse">
         <form action="#" class="request-form car-filter bg-primary">
             <div class="form-group">
-                <label for="" class="label">Pick-up location</label>
-                <input type="text" class="form-control" placeholder="City, Airport, Station, etc">
+                <label for="" class="label">Alma Noktası</label>
+                <input type="text" class="form-control" placeholder="Şehir, Adres vb.">
             </div>
             <div class="form-group">
-                <label for="" class="label">Drop-off location</label>
-                <input type="text" class="form-control" placeholder="City, Airport, Station, etc">
+                <label for="" class="label">Teslim Noktası</label>
+                <input type="text" class="form-control" placeholder="Şehir, Adres vb.">
             </div>
             <div class="form-double-item">
                 <div class="form-group col-lg-6">
-                    <label for="" class="label">Pick-up date</label>
+                    <label for="" class="label">Kiralama Tarihi</label>
                     <input type="date" class="form-control mr-2" id="book_pick_date" placeholder="">
                 </div>
                 <div class="form-group col-lg-6">
-                    <label for="" class="label">Drop-off date</label>
+                    <label for="" class="label">Teslim Tarihi</label>
                     <input type="date" class="form-control ml-2" id="book_off_date" placeholder="">
                 </div>
             </div>
             <div class="form-group">
-                <label for="" class="label">Pick-up time</label>
-                <input type="text" class="form-control" id="time_pick" placeholder="Time">
+                <label for="" class="label">Kiralama Saati</label>
+                <input type="time" class="form-control" id="time_pick" placeholder="Saat">
             </div>
             <div class="form-group" style="margin-top:20px;">
-                <input type="submit" value="Filter Now" class="btn btn-success submit">
+                <input type="submit" value="Filtrele" class="btn btn-success submit">
             </div>
         </form>
     </div>
-
 </div>
 
 <div class="container">
@@ -52,11 +49,11 @@
                     <h2>@Html.ActionLink("Grand Sedan", "VehicleDetail", "Home", new { area = "" }, new { @class = "car-link" })</h2>
                     <div>
                         <span class="cat">Mercedes</span>
-                        <p class="price ">$500 <span>/day</span></p>
+                        <p class="price ">500 <span>/Gün</span></p>
                     </div>
                     <p class="d-block">
-                        <a href="#" class="btn btn-primary">Book now</a>
-                        @Html.ActionLink("Details", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Rezervasyon", "BookVehicle", "Home", new { area = "" }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Detaylar", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
                     </p>
                 </div>
             </div>
@@ -69,11 +66,11 @@
                     <h2>@Html.ActionLink("G60", "VehicleDetail", "Home", new { area = "" }, new { @class = "car-link" })</h2>
                     <div>
                         <span class="cat">Subaru</span>
-                        <p class="price">$500 <span>/day</span></p>
+                        <p class="price">₺500 <span>/Gün</span></p>
                     </div>
                     <p class="d-block">
-                        <a href="#" class="btn btn-primary">Book now</a>
-                        @Html.ActionLink("Details", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Rezervasyon", "BookVehicle", "Home", new { area = "" }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Detaylar", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
                     </p>
                 </div>
             </div>
@@ -86,11 +83,11 @@
                     <h2>@Html.ActionLink("EGEA", "VehicleDetail", "Home", new { area = "" }, new { @class = "car-link" })</h2>
                     <div>
                         <span class="cat">FIAT</span>
-                        <p class="price ">$500 <span>/day</span></p>
+                        <p class="price ">₺500 <span>/Gün</span></p>
                     </div>
                     <p class="d-block">
-                        <a href="#" class="btn btn-primary">Book now</a>
-                        @Html.ActionLink("Details", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Rezervasyon", "BookVehicle", "Home", new { area = "" }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Detaylar", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
                     </p>
                 </div>
             </div>
@@ -104,11 +101,11 @@
                     <h2>@Html.ActionLink("Cruze", "VehicleDetail", "Home", new { area = "" }, new { @class = "car-link" })</h2>
                     <div>
                         <span class="cat">Cheverolet</span>
-                        <p class="price ">$500 <span>/day</span></p>
+                        <p class="price ">₺500 <span>/Gün</span></p>
                     </div>
                     <p class="d-block">
-                        <a href="#" class="btn btn-primary">Book now</a>
-                        @Html.ActionLink("Details", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Rezervasyon", "BookVehicle", "Home", new { area = "" }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Detaylar", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
                     </p>
                 </div>
             </div>
@@ -121,11 +118,11 @@
                     <h2>@Html.ActionLink("E30", "VehicleDetail", "Home", new { area = "" }, new { @class = "car-link" })</h2>
                     <div>
                         <span class="cat">BMW</span>
-                        <p class="price ">$500 <span>/day</span></p>
+                        <p class="price ">₺500 <span>/Gün</span></p>
                     </div>
                     <p class="d-block">
-                        <a href="#" class="btn btn-primary">Book now</a>
-                        @Html.ActionLink("Details", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Rezervasyon", "BookVehicle", "Home", new { area = "" }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Detaylar", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
                     </p>
                 </div>
             </div>
@@ -138,11 +135,11 @@
                     <h2>@Html.ActionLink("Camaro", "VehicleDetail", "Home", new { area = "" }, new { @class = "car-link" })</h2>
                     <div>
                         <span class="cat">Cheverolet</span>
-                        <p class="price ">$500 <span>/day</span></p>
+                        <p class="price ">₺500 <span>/Gün</span></p>
                     </div>
                     <p class="d-block">
-                        <a href="#" class="btn btn-primary">Book now</a>
-                        @Html.ActionLink("Details", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Rezervasyon", "BookVehicle", "Home", new { area = "" }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Detaylar", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
                     </p>
                 </div>
             </div>

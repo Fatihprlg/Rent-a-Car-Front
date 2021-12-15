@@ -24,6 +24,10 @@ namespace Rent_a_Car_Front.Controllers
         {
             return View();
         }
+        public ActionResult BookVehicle()
+        {
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
