@@ -35,8 +35,8 @@ select,
 textarea {
     max-width: 280px;
 }
-.icon-bar{
-    color:black;
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: black;
 }
 .navbar.transparent.navbar-inverse{
     background: rgba(255, 255, 255, 0.4);

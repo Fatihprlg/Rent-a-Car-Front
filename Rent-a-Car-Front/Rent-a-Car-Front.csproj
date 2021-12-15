@@ -168,6 +168,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\car-bg-2.jpg" />
+    <Content Include="Images\car-ex.jpg" />
     <Content Include="Images\g60.jpg" />
     <Content Include="Images\login-bg.jpeg" />
     <Content Include="Images\main-bg.jpeg" />
@@ -219,6 +220,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\VehicleDetail.cshtml" />
+    <Content Include="Views\Home\Vehicles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -16,6 +16,10 @@ namespace Rent_a_Car_Front.Controllers
         {
             return View();
         }
+        public ActionResult Vehicles()
+        {
+            return View();
+        }
         public ActionResult VehicleDetail()
         {
             return View();
