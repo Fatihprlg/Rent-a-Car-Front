@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "Rezervasyonlar";
+}
+
+<div class="container filter-container">
+    <div>
+        <button type="button" class="collapse-btn" data-toggle="collapse" data-target="#filter-collapse">
+            <i class="fas fa-minus-square"></i>
+        </button>
+    </div>
+
+    <div class=" navbar-collapse collapse" id="filter-collapse">
+        <form action="#" class="request-form car-filter bg-primary">
+            <div class="form-group">
+                <label for="" class="label">Plaka</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" class="label">Durum</label>
+                <input type="text" class="form-control" >
+            </div>
+            <div class="form-double-item">
+                <div class="form-group col-lg-6">
+                    <label for="" class="label">Tarih Aralığı</label>
+                    <input type="date" class="form-control mr-2" id="book_pick_date" >
+                </div>
+                <div class="form-group col-lg-6">
+                    <label for="" class="label">  </label>
+                    <input type="date" class="form-control ml-2" id="book_off_date">
+                </div>
+            </div>
+            <div class="form-group" style="margin-top:20px;">
+                <input type="submit" value="Filtrele" class="btn btn-success submit">
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container request-list">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-box clearfix">
+                <div class="table-responsive">
+                    <table class="table user-list">
+                        <thead>
+                            <tr>
+                                <th><span>Araç</span></th>
+                                <th><span>Tarih</span></th>
+                                <th class="text-center"><span>Durum</span></th>
+                                <th><span>Kişi</span></th>
+                                <th><span>İşlem</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < 5; i++)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="~/Images/g60.jpg" alt="">
+                                        <a href="#" class="user-link">35 AB 354</a>
+                                        <span class="user-subhead">G60</span>
+                                    </td>
+                                    <td>
+                                        2013/08/08
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="label label-warning">Bekliyor</span>
+                                    </td>
+                                    <td>
+                                        <a href="#">mila@kunis.com</a>
+                                    </td>
+                                    <td style="width: 20%;">
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fas fa-check fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link danger">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fas fa-trash fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                <ul class="pagination pull-right">
+                    <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

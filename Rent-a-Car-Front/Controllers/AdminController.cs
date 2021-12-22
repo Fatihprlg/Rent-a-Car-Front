@@ -13,5 +13,9 @@ namespace Rent_a_Car_Front.Controllers
         {
             return View();
         }
+        public ActionResult Reservations()
+        {
+            return View();
+        }
     }
 }

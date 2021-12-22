@@ -38,16 +38,24 @@
             <nav class="admin-nav">
                 <ul>
                     <li>
-                         <i class="fas fa-home"></i>
+                        <i class="fas fa-home"></i>
+                        @Html.ActionLink("Panel", "AdminPanel", "Admin", new { area = "" }, new { @class = "sidebar-link" })
+
                     </li>
                     <li>
                         <i class="fas fa-file-contract"></i>
+                        @Html.ActionLink("Rezervasyonlar", "Reservations", "Admin", new { area = "" }, new { @class = "sidebar-link" })
+
                     </li>
                     <li>
                         <i class="fas fa-car"></i>
+                        @Html.ActionLink("Araçlar", "AdminPanel", "Admin", new { area = "" }, new { @class = "sidebar-link" })
+
                     </li>
                     <li>
                         <i class="fas fa-user-alt"></i>
+                        @Html.ActionLink("Kullanıcılar", "AdminPanel", "Admin", new { area = "" }, new { @class = "sidebar-link" })
+
                     </li>
                 </ul>
             </nav>
@@ -116,5 +124,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>
