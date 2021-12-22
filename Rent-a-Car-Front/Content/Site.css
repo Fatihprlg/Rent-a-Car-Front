@@ -1,16 +1,19 @@
 ﻿body {
     padding-top: 50px;
-    width:100%;
+    width: 100%;
 }
+
 .icon {
     color: #1089FF;
-    width:5em!important;
-    height:2em!important;
+    width: 5em !important;
+    height: 2em !important;
 }
+
 .btn-success {
     background-color: #01D28E;
     border-color: #01D28E;
 }
+
 .btn-primary {
     background-color: #1089FF;
     border-color: #1089FF;
@@ -35,16 +38,20 @@ select,
 textarea {
     max-width: 280px;
 }
+
 .navbar-inverse .navbar-toggle .icon-bar {
     background-color: black;
 }
-.navbar.transparent.navbar-inverse{
+
+.navbar.transparent.navbar-inverse {
     background: rgba(255, 255, 255, 0.4);
-    border:none;
+    border: none;
 }
-.navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand{
+
+.navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
     color: black;
 }
+
 .footer {
     display: flex;
     flex-direction: column;
@@ -54,22 +61,123 @@ textarea {
     left: 0;
     right: 0;
 }
-.footer ul{padding:0;}
-.footer ul li{
-    list-style:none;
-    text-decoration:none;
+
+    .footer ul {
+        padding: 0;
+    }
+
+        .footer ul li {
+            list-style: none;
+            text-decoration: none;
+        }
+
+    .footer a {
+        text-decoration: none;
+        color: whitesmoke;
+    }
+
+    .footer .container {
+        display: flex;
+        flex-direction: row;
+    }
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 }
-.footer a{
-    text-decoration:none;
-    color:whitesmoke;
+
+
+/*Admin Sidebar CSS*/
+.admin-nav,
+.admin-nav:before,
+.admin-nav:after {
+    box-sizing: border-box;
 }
-.footer .container{
-    display:flex;
-    flex-direction:row;
+
+.admin-nav:after {
+    content: "";
+}
+
+.admin-nav {
+    float: left;
+    position: fixed;
+    z-index:2;
+    top: 25%;
+    left: 0;
+    background: transparent;
+}
+.admin-nav i{
+    color:white;
+    margin:20px 10px;
 
 }
-.footer-section{
-    display:flex;
-    flex-direction:column;
-    padding:20px;
+
+.admin-nav ul {
+    text-align: center;
+    text-decoration:none;
+    list-style:none;
+    padding:0;
 }
+
+.admin-nav ul li {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+    width: 80px;
+    cursor: pointer;
+    background: #1089ff;
+    text-transform: uppercase;
+    transition: all 0.4s ease-out;
+    border-bottom-color:white;
+    border-bottom-width:1px;
+    border-bottom-style:solid;
+    
+}
+
+.admin-nav ul li:after {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    background: white;
+    color: #1089ff;
+    top: 0;
+    left: 70px;
+    width: 80px;
+    height: 100%;
+    opacity: 0.5;
+    transform: perspective(400px) rotateY(90deg);
+    transform-origin: 0 100%;
+    transition: all 0.4s ease-out;
+    line-height: 60px;
+}
+
+.admin-nav ul li:nth-child(1):after {
+    content: "Panel";
+}
+
+.admin-nav ul li:nth-child(2):after {
+    content: "Kiralama";
+    font-size:12px;
+}
+
+.admin-nav ul li:nth-child(3):after {
+    content: "Araçlar";
+}
+
+.admin-nav ul li:nth-child(4):after {
+    content: "Kullanıcılar";
+    font-size: 9px;
+}
+
+.admin-nav ul li:hover {
+    transform: translateX(-70px);
+}
+
+.admin-nav ul li:hover:after {
+    opacity: 1;
+    transform: perspective(400px) rotateY(0deg) scale(1);
+}
+
+
+

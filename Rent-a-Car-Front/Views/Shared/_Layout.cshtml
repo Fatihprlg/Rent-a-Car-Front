@@ -3,11 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title -  kaçaolur.com</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
+
 <body>
+
     <div class="navbar navbar-inverse text-center transparent navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -29,18 +31,40 @@
             </div>
         </div>
     </div>
+
     <div class="container body-content">
+        @if (true)
+        {
+            <nav class="admin-nav">
+                <ul>
+                    <li>
+                         <i class="fas fa-home"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-file-contract"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-car"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-user-alt"></i>
+                    </li>
+                </ul>
+            </nav>
+        }
         @RenderBody()
         <hr />
         <footer>
             <div class="footer">
                 <div class="">
-                        <div class="footer-section col-lg-6 col-md-6 col-xs-12">
-                            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a dolor at dolor maximus consectetur. Fusce neque lorem,
+                    <div class="footer-section col-lg-6 col-md-6 col-xs-12">
+                        @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a dolor at dolor maximus consectetur. Fusce neque lorem,
                             elementum quis massa id, eleifend scelerisque leo. Nunc elit felis, congue vel ante sed, semper convallis nibh. Pellentesque
-                            in risus condimentum, venenatis.</p>
-                        </div>
+                            in risus condimentum, venenatis.
+                        </p>
+                    </div>
                     <div class="footer-section col-lg-2 col-md-2 col-xs-12">
                         <div>
                             <h4>Information</h4>
