@@ -51,6 +51,9 @@ textarea {
 .navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
     color: black;
 }
+    .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-brand:hover {
+        color: #1089ff;
+    }
 
 .footer {
     display: flex;
@@ -131,8 +134,12 @@ textarea {
     color: transparent;
     top: 0;
     transition: all 0.4s ease-out;
-    overflow:hidden;
-    text-overflow:clip;
+    overflow: hidden;
+    text-overflow: clip;
+    border-bottom-color: white;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    z-index:2;
 }
 a.sidebar-link {
     text-decoration: none;
@@ -140,8 +147,9 @@ a.sidebar-link {
 .sidebar-link:hover {
     width: 160px;
     transition: all 0.4s ease-out;
-    background-color: white;
-    color: #1089ff;
+    background-color: #1089ff;
+    color: white;
+
 }
 .admin-nav ul li {
     border-top-right-radius: 10px;

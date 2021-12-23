@@ -196,12 +196,14 @@
     border-radius:10px;
 }
 
-.car-wrap .img {
-    width: 100%;
-    height: 220px;
-    border-top-left-radius:10px;
-    border-top-right-radius:10px;
-}
+    .car-wrap .img {
+        width: 100%;
+        height: 220px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
 
 .car-wrap .text {
     border-top: none;
@@ -242,6 +244,7 @@
 }
 .car-wrap .text p.d-block {
     width: 100%;
+    
 }
 
 .car-wrap .text p.d-block a {
@@ -318,6 +321,17 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+.rent-form  .form-group .form-control{
+    width:250px;
+}
+#preview{
+    max-width: 250px;
+    max-height:250px;
+    object-fit:cover;
+    margin-top:10px;
+    font-size:12px;
+    border-radius:10px;
 }
 
 /*Admin Panel*/
@@ -511,6 +525,23 @@
     font-style: italic;
 }
 
+/*Modal View*/
+.details-modal{
+    position:fixed;
+    z-index:5;
+    background-color:rgba(0,0,0,0.5);
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+}
+.details-modal a{
+    position:fixed;
+    margin-top: 50px;
+    font-size:25px;
+    right:0;
+    color:white;
+}
 /* TABLES */
 .table {
     border-collapse: separate;

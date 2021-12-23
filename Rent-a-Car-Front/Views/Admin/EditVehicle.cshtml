@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "Araç Düzenle";
+}
+
+
+<div class="container rent-section">
+    <form action="#" class="request-form rent-form bg-primary">
+        <div>
+            <div class="form-group">
+                <label for="" class="label">Fotoğraf</label>
+                <input required type="file" accept="image/*" id="imgInp" class="form-control">
+                <img id="preview" src="#" alt="Resim Yükleyin" />
+            </div>
+            <div class="form-group">
+                <label for="" class="label">Plaka</label>
+                <input required type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" class="label">Marka</label>
+                <input required type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" class="label">Yakıt</label>
+                <input required type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" class="label">Koltuk Sayısı</label>
+                <input required type="number" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" class="label">Gereken Ehliyet Yaşı</label>
+                <input required type="number" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" class="label">Bagaj Hacmi</label>
+                <input required type="number" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" class="label">Vites Türü</label>
+                <input required type="text" class="form-control">
+            </div>
+        </div>
+        <div>
+            <div class="form-group">
+                <label for="" class="label">Model</label>
+                <input required type="text"  class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" class="label">Model Yılı</label>
+                <input required type="number" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" class="label">Kilometre</label>
+                <input required type="number" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" class="label">Günlük KM Sınırı</label>
+                <input required type="number" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" class="label">Günlük Fiyat</label>
+                <input required type="number" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" class="label">Yaş Sınırı</label>
+                <input required type="number" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" class="label">Açıklama</label>
+                <textarea required type="text" rows="7" style="resize:none;" class="form-control"></textarea>
+            </div>
+            <div class="form-group" style="margin-top:20px;">
+                <input type="submit" value="Kaydet" class="btn btn-success submit">
+            </div>
+        </div>
+
+    </form>
+</div>
+<script>
+    imgInp = document.getElementById('imgInp')
+    preview = document.getElementById('preview')
+    imgInp.onchange = evt => {
+        const [file] = imgInp.files
+        if (file) {
+            preview.src = URL.createObjectURL(file)
+        }
+    }
+</script>
+
+

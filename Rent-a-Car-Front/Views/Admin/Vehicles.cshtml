@@ -1,0 +1,150 @@
+﻿
+@{
+    ViewBag.Title = "Araçlar";
+}
+
+<div class="container filter-container">
+    <div>
+        <button type="button" class="collapse-btn" data-toggle="collapse" data-target="#filter-collapse">
+            <i class="fas fa-minus-square"></i>
+        </button>
+    </div>
+
+    <div class=" navbar-collapse collapse" id="filter-collapse">
+        <form action="#" class="request-form car-filter bg-primary">
+            <div class="form-group">
+                <label for="" class="label">Plaka</label>
+                <input type="text" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label for="" class="label">Marka/Model</label>
+                <input type="text" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label for="" class="label">Kilometre</label>
+                <input type="number" class="form-control" >
+            </div>
+            <div class="form-group" style="margin-top:20px;">
+                <input type="submit" value="Filtrele" class="btn btn-success submit">
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="car-wrap  ">
+                <div class="img  " style="background-image: url(../../Images/new.jpg);">
+                </div>
+                <div class="text">
+                    <h2>@Html.ActionLink("Yeni Araç", "VehicleDetail", "Home", new { area = "" }, new { @class = "car-link" })</h2>
+                    <div>
+                        <span class="cat">Yeni Araç</span>
+                        <p class="price"><span>Plaka</span></p>
+                    </div>
+                    <p class="d-block">
+                        @Html.ActionLink("Ekle", "BookVehicle", "Home", new { area = "" }, new { @class = "btn btn-success" })
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="car-wrap  ">
+                <div class="img   " style="background-image: url(../../Images/g60.jpg);">
+                </div>
+                <div class="text">
+                    <h2>@Html.ActionLink("G60", "VehicleDetail", "Home", new { area = "" }, new { @class = "car-link" })</h2>
+                    <div>
+                        <span class="cat">Subaru</span>
+                        <p class="price"><span>35 A 481</span></p>
+                    </div>
+                    <p class="d-block">
+                        @Html.ActionLink("Detaylar", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="car-wrap  ">
+                <div class="img   " style="background-image: url(../../Images/car-ex.jpg);">
+                </div>
+                <div class="text">
+                    <h2>@Html.ActionLink("EGEA", "VehicleDetail", "Home", new { area = "" }, new { @class = "car-link" })</h2>
+                    <div>
+                        <span class="cat">FIAT</span>
+                        <p class="price "><span>35 A 481</span></p>
+                    </div>
+                    <p class="d-block">
+                        @Html.ActionLink("Detaylar", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="car-wrap  ">
+                <div class="img" style="background-image: url(../../Images/g60.jpg);">
+                </div>
+                <div class="text">
+                    <h2>@Html.ActionLink("Cruze", "VehicleDetail", "Home", new { area = "" }, new { @class = "car-link" })</h2>
+                    <div>
+                        <span class="cat">Cheverolet</span>
+                        <p class="price "><span>35 A 481</span></p>
+                    </div>
+                    <p class="d-block">
+                        @Html.ActionLink("Detaylar", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="car-wrap  ">
+                <div class="img" style="background-image: url(../../Images/car-ex.jpg);">
+                </div>
+                <div class="text">
+                    <h2>@Html.ActionLink("E30", "VehicleDetail", "Home", new { area = "" }, new { @class = "car-link" })</h2>
+                    <div>
+                        <span class="cat">BMW</span>
+                        <p class="price "><span>35 A 481</span></p>
+                    </div>
+                    <p class="d-block">
+                        @Html.ActionLink("Detaylar", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="car-wrap  ">
+                <div class="img   " style="background-image: url(../../Images/car-ex.jpg);">
+                </div>
+                <div class="text">
+                    <h2>@Html.ActionLink("Camaro", "VehicleDetail", "Home", new { area = "" }, new { @class = "car-link" })</h2>
+                    <div>
+                        <span class="cat">Cheverolet</span>
+                        <p class="price "><span>35 A 481</span></p>
+                    </div>
+                    <p class="d-block">
+                        @Html.ActionLink("Detaylar", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pagination">
+    <div>
+        <div class="block-27">
+            <ul>
+                <li><a href="#">&lt;</a></li>
+                <li class="active"><span>1</span></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&gt;</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+

@@ -17,5 +17,17 @@ namespace Rent_a_Car_Front.Controllers
         {
             return View();
         }
+        public ActionResult Vehicles()
+        {
+            return View();
+        }
+        public ActionResult Users()
+        {
+            return View();
+        }
+        public ActionResult EditVehicle()
+        {
+            return View();
+        }
     }
 }
