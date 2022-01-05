@@ -54,15 +54,6 @@
                                 <li>Onboard computer</li>
                             </ul>
                         </div>
-                        @*<div class="col-md-4">
-                            <ul class="features">
-                                <li>Audio input</li>
-                                <li>Long Term Trips</li>
-                                <li>Car Kit</li>
-                                <li>Remote central locking</li>
-                                <li>Climate control</li>
-                            </ul>
-                        </div>*@
                     </div>
                 </div>
 
@@ -74,5 +65,5 @@
     </div>
 </div>
 <div class="book-button">
-    @Html.ActionLink("Rezervasyon Yap", "BookVehicle", "Home", new { ID = Model.ID }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Düzenle", "EditVehicle", "Admin", new { ID = Model.ID }, new { @class = "btn btn-primary" })
 </div>

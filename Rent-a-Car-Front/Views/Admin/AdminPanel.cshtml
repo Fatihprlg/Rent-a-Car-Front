@@ -1,4 +1,4 @@
-﻿
+﻿@model IDictionary<int, int>
 @{
     ViewBag.Title = "Yönetici Paneli";
 }
@@ -28,4 +28,24 @@
 </div>
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<script src="~/Scripts/plot.js"></script>
+<script type="text/javascript">
+    var xArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    var yArray = [@Model[1], @Model[2], @Model[3], @Model[4], @Model[5], @Model[6], @Model[7], @Model[8], @Model[9], @Model[10], @Model[11], @Model[12]];
+
+    // Define Data
+    var data = [{
+        x: xArray,
+        y: yArray,
+        mode: "line"
+    }];
+
+    // Define Layout
+    var layout = {
+        xaxis: { range: [0, 12], title: "Aylar" },
+        yaxis: { range: [0, 50], title: "Kiralama Sayıları(toplam: " + @Model[0]+ ")" },
+        title: "Son 12 Ayda Oto Kiralama Sayıları"
+    };
+
+    // Display using Plotly
+    Plotly.newPlot("myPlot", data, layout);
+</script>

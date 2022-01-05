@@ -6,29 +6,18 @@
 
 <div class="jumbotron">
     <div class="fast-rent-section col-md-4 col-xs-10">
-        <form action="#" class="request-form bg-primary">
+        <form action="/Home/FastRent" method="post" class="request-form bg-primary">
             <h2>Yolculuğa Başla!</h2>
-            <div class="form-group">
-                <label for="" class="label">Alım Noktası</label>
-                <input type="text" class="form-control" placeholder="Şehir, Ardes vb.">
-            </div>
-            <div class="form-group">
-                <label for="" class="label">Teslim Noktası</label>
-                <input type="text" class="form-control" placeholder="Şehir, Ardes vb.">
-            </div>
+            
             <div class="form-double-item">
                 <div class="form-group col-lg-6">
                     <label for="" class="label">Alım Tarihi</label>
-                    <input type="date" class="form-control mr-2" id="book_pick_date">
+                    <input type="date" name="pickUpDate" class="form-control mr-2" id="book_pick_date">
                 </div>
                 <div class="form-group col-lg-6">
                     <label for="" class="label">Teslim Tarihi</label>
-                    <input type="date" class="form-control ml-2" id="book_off_date">
+                    <input type="date" name="dropOffDate" class="form-control ml-2" id="book_off_date">
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="" class="label">Alım Saati</label>
-                <input type="time" class="form-control" id="time_pick">
             </div>
             <div class="form-group">
                 <input type="submit" value="Hemen Kirala" class="btn btn-success submit">

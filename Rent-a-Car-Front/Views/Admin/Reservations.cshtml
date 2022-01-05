@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Rent_a_Car_Front.Models.RentInfo>
 @{
     ViewBag.Title = "Rezervasyonlar";
 }
@@ -18,12 +18,12 @@
             </div>
             <div class="form-group">
                 <label for="" class="label">Durum</label>
-                <input type="text" class="form-control" >
+                <input type="text" class="form-control">
             </div>
             <div class="form-double-item">
                 <div class="form-group col-lg-6">
                     <label for="" class="label">Tarih Aralığı</label>
-                    <input type="date" class="form-control mr-2" id="book_pick_date" >
+                    <input type="date" class="form-control mr-2" id="book_pick_date">
                 </div>
                 <div class="form-group col-lg-6">
                     <label for="" class="label">  </label>
@@ -53,37 +53,43 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @for (int i = 0; i < 5; i++)
+                            @foreach (var r in Model)
                             {
                                 <tr>
                                     <td>
-                                        <img loading="lazy" src="~/Images/g60.jpg" alt="">
-                                        <a href="#" class="user-link">35 AB 354</a>
-                                        <span class="user-subhead">G60</span>
+                                        <img loading="lazy" src="~/@r.Picture" alt="">
+                                        <a href="#" class="user-link">@r.VehiclePlateNum</a>
+                                        <span class="user-subhead">@r.VehicleModel</span>
                                     </td>
                                     <td>
-                                        2013/08/08
+                                        @r.StartDate - @r.EndDate
                                     </td>
                                     <td class="text-center">
-                                        <span class="label label-warning">Bekliyor</span>
+                                        @if (r.State.Equals("Bekliyor"))
+                                        {<span class="label label-warning">@r.State</span>}
+                                        @if (r.State.Equals("Onaylandı"))
+                                        {<span class="label label-success">@r.State</span>}
+                                        @if (r.State.Equals("Reddedildi"))
+                                        {<span class="label label-danger">@r.State</span>}
+
                                     </td>
                                     <td>
-                                        <a href="#">mila@kunis.com</a>
+                                        <a href="#">@r.CustomerEmail</a>
                                     </td>
                                     <td style="width: 20%;">
-                                        <a href="#" class="table-link"  data-toggle="modal" data-target="#details-modal">
+                                        <a href="#" class="table-link" onclick="Modal('@r.RentID', '@r.VehiclePlateNum', '@r.StartDate', '@r.EndDate', '@r.CustomerFullName', '@r.CustomerEmail', '@r.CustomerAge', '@r.LicenceAge', '@r.TotalPrice')" data-toggle="modal" data-target="#details-modal">
                                             <span class="fa-stack">
                                                 <i class="fa fa-square fa-stack-2x"></i>
                                                 <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
                                             </span>
                                         </a>
-                                        <a href="#" class="table-link">
+                                        <a href="/Admin/AcceptRequest/@r.RentID" class="table-link">
                                             <span class="fa-stack">
                                                 <i class="fa fa-square fa-stack-2x"></i>
                                                 <i class="fas fa-check fa-stack-1x fa-inverse"></i>
                                             </span>
                                         </a>
-                                        <a href="#" class="table-link danger">
+                                        <a href="/Admin/RejectRequest/@r.RentID" class="table-link danger">
                                             <span class="fa-stack">
                                                 <i class="fa fa-square fa-stack-2x"></i>
                                                 <i class="fas fa-trash fa-stack-1x fa-inverse"></i>
@@ -92,11 +98,10 @@
                                     </td>
                                 </tr>
                             }
-
                         </tbody>
                     </table>
                 </div>
-                
+
                 <div class="pagination">
                     <div>
                         <div class="block-27">
@@ -127,13 +132,44 @@
                 </button>
             </div>
             <div class="modal-body">
-                ...
+                <p id="rentID">ID: </p>
+                <p id="plaka">Plaka: </p>
+                <p id="baslangicTarih">Kiralama Tarihi: </p>
+                <p id="bitisTarih">Teslim Tarihi: </p>
+                <p id="musteri">Kişi: </p>
+                <p id="mail">E-Mail</p>
+                <p id="yas">Yaş: </p>
+                <p id="ehliyetYas">Ehliyet Yaşı: </p>
+                <p id="toplamUcret">Alınacak Toplam Ücret: </p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Reddet</button>
-                <button type="button" class="btn btn-success">Onayla</button>
+                <button type="button" onclick="Reject()" class="btn btn-danger" data-dismiss="modal">Reddet</button>
+                <button type="button" onclick="Accept()" class="btn btn-success" data-dismiss="modal">Onayla</button>
             </div>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    function Modal(rentID, plaka, kTarih, tTarih, musteri, mail, yas, ehliyetYas, toplamUcret) {
+        document.getElementById('rentID').innerHTML = rentID;
+        document.getElementById('plaka').innerHTML = 'Plaka: ' + plaka;
+        document.getElementById('baslangicTarih').innerHTML = 'Kiralama Tarihi: ' + kTarih;
+        document.getElementById('bitisTarih').innerHTML = 'Teslim Tarihi: ' + tTarih;
+        document.getElementById('musteri').innerHTML = 'Müşteri Ad-Soyad: ' + musteri;
+        document.getElementById('mail').innerHTML = 'Müşteri E-Mail: ' + mail;
+        document.getElementById('yas').innerHTML = 'Yaş: ' + yas;
+        document.getElementById('ehliyetYas').innerHTML = 'Ehliyet Yaşı: ' + ehliyetYas;
+        document.getElementById('toplamUcret').innerHTML = 'Toplam Ücret: ' + toplamUcret;
+    }
+
+    function Accept() {
+        var id = document.getElementById('rentID').innerHTML;
+        location.href = "/Admin/AcceptRequest/" + id;
+    }
+    function Reject() {
+        var id = document.getElementById('rentID').innerHTML;
+        location.href = "/Admin/RejectRequest/" + id;
+    }
+</script>
+
 

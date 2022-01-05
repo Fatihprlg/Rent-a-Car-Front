@@ -5,62 +5,80 @@
 
 
 <div class="container rent-section">
-    <form action="#" class="request-form rent-form bg-primary">
-        <div>
+    <form action="/Home/BookRequest" method="post" class="request-form rent-form bg-primary">
+        <div class="column">
             <div class="form-group">
-                <label for="" class="label">Ad - Soyad</label>
-                <input type="text" class="form-control">
+                <label for="" class="label">Ad</label>
+                <input type="text" name="name" class="form-control">
             </div>
             <div class="form-group">
                 <label for="" class="label">T.C. Kimlik Numarası</label>
-                <input type="text" class="form-control">
+                <input type="text" name="identity" class="form-control">
             </div>
-            <div class="form-double-item">
-                <div class="form-group col-lg-6">
-                    <label for="" class="label">Alış Tarihi</label>
-                    <input type="date" class="form-control mr-2" id="book_pick_date">
-                </div>
-                <div class="form-group col-lg-6">
-                    <label for="" class="label">Veriş Tarihi</label>
-                    <input type="date" class="form-control ml-2" id="book_off_date">
-                </div>
+            <div class="form-group">
+                <label for="" class="label">Alış Tarihi</label>
+                <input type="date" name="pickUpDate" class="form-control mr-2" onchange="TotalAmount()" id="book_pick_date">
+            </div>
+            <div class="form-group">
+                <label for="" class="label">Veriş Tarihi</label>
+                <input type="date" name="dropOffDate" class="form-control ml-2" onchange="TotalAmount()" id="book_off_date">
             </div>
             <div class="form-group">
                 <label for="" class="label">Ehliyet Yaşı</label>
-                <input type="text" class="form-control" id="time_pick">
+                <input type="text" name="licenceAge" class="form-control" id="time_pick">
             </div>
-            <div class="form-group">
-                <label for="" class="label">Ehliyet Yaşı</label>
-                <input type="text" class="form-control" id="time_pick">
-            </div>
-            <div class="form-group">
-                <label for="" class="label">Ehliyet Yaşı</label>
-                <input type="text" class="form-control" id="time_pick">
-            </div>
+            
         </div>
-        <div>
+        <div class="column">
             <div class="form-group">
-                <label for="" class="label">Ad - Soyad</label>
-                <input type="text" class="form-control">
+                <label for="" class="label">Soyad</label>
+                <input type="text" name="surname" class="form-control">
             </div>
             <div class="form-group">
-                <label for="" class="label">T.C. Kimlik Numarası</label>
-                <input type="text" class="form-control">
+                <label for="" class="label">Doğum Yılı</label>
+                <input type="date" name="bornDate" class="form-control">
             </div>
-            <div class="form-double-item">
-                <div class="form-group col-lg-6">
-                    <label for="" class="label">Alış Tarihi</label>
-                    <input type="date" class="form-control mr-2" id="book_pick_date">
-                </div>
-                <div class="form-group col-lg-6">
-                    <label for="" class="label">Veriş Tarihi</label>
-                    <input type="date" class="form-control ml-2" id="book_off_date">
-                </div>
+            <div class="form-group">
+                <label for="" class="label">Telefon Numarası</label>
+                <input type="number" name="phone" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" class="label">Adres</label>
+                <input type="text" name="adress" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" class="label">E-mail</label>
+                <input type="text" name="mail" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" class="label" id="totalAmount">Ücret = </label>
+            </div>
+            <div class="form-group">
+                <label for="" class="label">Araç ID:</label>
+                <input type="text" name="vehicleID" value="@ViewBag.vehicleID" readonly />
+
             </div>
             <div class="form-group" style="margin-top:20px;">
                 <input type="submit" value="Rezervasyon Talebi Gönder" class="btn btn-success submit">
             </div>
         </div>
-        
+
     </form>
 </div>
+<script>
+
+    function TotalAmount() {
+        var startDate = new Date(document.getElementById('book_pick_date').value);
+        var endDate = new Date(document.getElementById('book_off_date').value);
+        
+        console.log(startDate + ' ' + endDate);
+        if (startDate && endDate) {
+
+            var difference = Math.abs(endDate - startDate);
+            console.log(difference);
+        var days = difference / (1000 * 3600 * 24);
+            console.log(days);
+                document.getElementById('totalAmount').innerHTML = 'Ücret = ' + (days * @ViewBag.amount);
+    }
+    }
+</script>

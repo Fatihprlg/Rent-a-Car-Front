@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Rent_a_Car.Models.Concerets.Employee>
 @{
     ViewBag.Title = "Kullanıcılar";
 }
@@ -11,14 +11,14 @@
     </div>
 
     <div class=" navbar-collapse collapse" id="filter-collapse">
-        <form action="#" class="request-form car-filter bg-primary">
+        <form action="/Admin/FilterUsers" method="post" class="request-form car-filter bg-primary">
             <div class="form-group">
                 <label for="" class="label">Kullanıcı ID</label>
-                <input type="text" class="form-control">
+                <input type="text" name="id" class="form-control">
             </div>
             <div class="form-group">
-                <label for="" class="label">Ad Soyad</label>
-                <input type="text" class="form-control">
+                <label for="" class="label">İsim:</label>
+                <input type="text" name="isim" class="form-control">
             </div>
             <div class="form-group" style="margin-top:20px;">
                 <input type="submit" value="Filtrele" class="btn btn-success submit">
@@ -36,44 +36,63 @@
                         <thead>
                             <tr>
                                 <th><span>Ad-Soyad</span></th>
-                                <th><span>Eklenme Tarihi</span></th>
+                                <th><span>Telefon</span></th>
                                 <th class="text-center"><span>Durum</span></th>
                                 <th><span>Mail</span></th>
                                 <th><span>İşlem</span></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @for (int i = 0; i < 5; i++)
+                            <tr>
+                                <td>
+                                    <img src="~/Images/user-placeholder.png" alt="">
+                                    <a href="" data-toggle="modal" data-target="#new-modal" class="user-link">Yeni Kullanıcı </a>
+                                    <span class="user-subhead">Çalışan</span>
+                                </td>
+                                <td>
+                                    -
+                                </td>
+                                <td class="text-center">
+                                    <span class="label label-success">Aktif</span>
+                                </td>
+                                <td>
+                                    <a href="#">-</a>
+                                </td>
+                                <td style="width: 20%;">
+                                    <a href="#"  data-toggle="modal" data-target="#new-modal" class="table-link">
+                                        <span class="fa-stack">
+                                            <i class="fa fa-square fa-stack-2x"></i>
+                                            <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                    
+                                </td>
+                            </tr>
+                            @foreach (var e in Model)
                             {
                                 <tr>
                                     <td>
                                         <img src="~/Images/user-placeholder.png" alt="">
-                                        <a href="#" class="user-link">Alan Turing</a>
-                                        <span class="user-subhead">Admin</span>
+                                        <a href="#" class="user-link">@e.Isim  @e.Soyisim </a>
+                                        <span class="user-subhead">Çalışan</span>
                                     </td>
                                     <td>
-                                        2013/08/08
+                                        @e.Telefon
                                     </td>
                                     <td class="text-center">
                                         <span class="label label-success">Aktif</span>
                                     </td>
                                     <td>
-                                        <a href="#">alanturing@enigma.com</a>
+                                        <a href="#">@e.Email</a>
                                     </td>
                                     <td style="width: 20%;">
-                                        <a href="#" class="table-link">
+                                        <a href="#" data-toggle="modal" onclick="Modal('@e.ID', '@e.Isim', '@e.Soyisim', '@e.Email', '@e.Telefon', '@e.TC', '@e.Sifre')" data-target="#details-modal" class="table-link">
                                             <span class="fa-stack">
                                                 <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                                <i class="fa fa-pen fa-stack-1x fa-inverse"></i>
                                             </span>
                                         </a>
-                                        <a href="#" class="table-link">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fas fa-pen fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                        <a href="#" class="table-link danger">
+                                        <a href="/Admin/DeleteUser/@e.ID" class="table-link danger">
                                             <span class="fa-stack">
                                                 <i class="fa fa-square fa-stack-2x"></i>
                                                 <i class="fas fa-trash fa-stack-1x fa-inverse"></i>
@@ -107,4 +126,80 @@
     </div>
 </div>
 
-
+<div class="modal fade" id="details-modal" tabindex="-1" role="dialog" aria-labelledby="details-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="details-modal-label">Detaylar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/Admin/SaveUserChanges" method="post">
+                <div class="modal-body">
+                    <label for="" name="ID"></label>
+                    <label for="">İsim: </label>
+                    <input type="text" name="isim" value="" />
+                    <label for="">Soyisim: </label>
+                    <input type="text" name="soyisim" value="" />
+                    <label for="">Telefon: </label>
+                    <input type="number" name="telefon" value="" />
+                    <label for="">Kişi: </label>
+                    <input type="text" name="mail" value="" />
+                    <label for="">E-Mail: </label>
+                    <input type="text" name="sifre" value="" />
+                    <label for="">TC Kimlik No: </label>
+                    <input type="number" name="tc" value="" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
+                    <button type="submit" class="btn btn-success" data-dismiss="modal">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="new-modal" tabindex="-1" role="dialog" aria-labelledby="new-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="new-modal-label">Detaylar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/Admin/InsertUser" method="post">
+                <div class="modal-body">
+                    <label for="">İsim: </label>
+                    <input type="text" name="isim" value="" />
+                    <label for="">Soyisim: </label>
+                    <input type="text" name="soyisim" value="" />
+                    <label for="">Telefon: </label>
+                    <input type="number" name="telefon" value="" />
+                    <label for="">Kişi: </label>
+                    <input type="text" name="mail" value="" />
+                    <label for="">E-Mail: </label>
+                    <input type="text" name="sifre" value="" />
+                    <label for="">TC Kimlik No: </label>
+                    <input type="number" name="tc" value="" />
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
+                    <button type="submit" class="btn btn-success" data-dismiss="modal">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function Modal(id, isim, soyisim, mail, telefon, tc, sifre) {
+        document.getElementById('ID').innerHTML = id;
+        document.getElementById('isim').value = isim;
+        document.getElementById('soyisim').value = soyisim;
+        document.getElementById('telefon').value = telefon;
+        document.getElementById('mail').value = mail;
+        document.getElementById('sifre').value = sifre;
+        document.getElementById('tc').value = tc;
+    }
+    
+</script>

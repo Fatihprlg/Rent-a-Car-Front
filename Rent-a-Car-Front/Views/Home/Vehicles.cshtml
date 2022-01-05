@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<Rent_a_Car.Models.Concerets.Vehicle>
+
+@{
     ViewBag.Title = "Araçlar";
 }
 <div class="container filter-container">
@@ -9,29 +11,25 @@
     </div>
 
     <div class=" navbar-collapse collapse" id="filter-collapse">
-        <form action="#" class="request-form car-filter bg-primary">
-            <div class="form-group">
-                <label for="" class="label">Alma Noktası</label>
-                <input type="text" class="form-control" placeholder="Şehir, Adres vb.">
-            </div>
-            <div class="form-group">
-                <label for="" class="label">Teslim Noktası</label>
-                <input type="text" class="form-control" placeholder="Şehir, Adres vb.">
-            </div>
+        <form action="/Home/VehicleFilter" method="post" id="filter-form" class="request-form car-filter bg-primary">
+            
             <div class="form-double-item">
                 <div class="form-group col-lg-6">
                     <label for="" class="label">Kiralama Tarihi</label>
-                    <input type="date" class="form-control mr-2" id="book_pick_date" placeholder="">
+                    <input type="date" class="form-control mr-2" name="pick_date" value="@ViewBag.PickUpDate">
                 </div>
                 <div class="form-group col-lg-6">
                     <label for="" class="label">Teslim Tarihi</label>
-                    <input type="date" class="form-control ml-2" id="book_off_date" placeholder="">
+                    <input type="date" class="form-control ml-2" name="drop_date" value="@ViewBag.DropOffDate">
                 </div>
             </div>
-            <div class="form-group">
-                <label for="" class="label">Kiralama Saati</label>
-                <input type="time" class="form-control" id="time_pick" placeholder="Saat">
-            </div>
+          
+            @if (ViewBag.PickUpDate != null && ViewBag.DropOffDate != null)
+            {
+                <script>
+                    document.getElementById('filter-post').submit()
+                </script>
+            }
             <div class="form-group" style="margin-top:20px;">
                 <input type="submit" value="Filtrele" class="btn btn-success submit">
             </div>
@@ -41,109 +39,30 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
-            <div class="car-wrap  ">
-                <div class="img  " style="background-image: url(../../Images/car-ex.jpg);">
-                </div>
-                <div class="text">
-                    <h2>@Html.ActionLink("Grand Sedan", "VehicleDetail", "Home", new { area = "" }, new { @class = "car-link" })</h2>
-                    <div>
-                        <span class="cat">Mercedes</span>
-                        <p class="price ">500 <span>/Gün</span></p>
+        @foreach (var vehicle in Model)
+        {
+            <div class="col-md-4">
+                <div class="car-wrap">
+                    <div class="img  " style="background-image: url(../../@vehicle.Resim);">
                     </div>
-                    <p class="d-block">
-                        @Html.ActionLink("Rezervasyon", "BookVehicle", "Home", new { area = "" }, new { @class = "btn btn-primary" })
-                        @Html.ActionLink("Detaylar", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="car-wrap  ">
-                <div class="img   " style="background-image: url(../../Images/g60.jpg);">
-                </div>
-                <div class="text">
-                    <h2>@Html.ActionLink("G60", "VehicleDetail", "Home", new { area = "" }, new { @class = "car-link" })</h2>
-                    <div>
-                        <span class="cat">Subaru</span>
-                        <p class="price">₺500 <span>/Gün</span></p>
-                    </div>
-                    <p class="d-block">
-                        @Html.ActionLink("Rezervasyon", "BookVehicle", "Home", new { area = "" }, new { @class = "btn btn-primary" })
-                        @Html.ActionLink("Detaylar", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="car-wrap  ">
-                <div class="img   " style="background-image: url(../../Images/car-ex.jpg);">
-                </div>
-                <div class="text">
-                    <h2>@Html.ActionLink("EGEA", "VehicleDetail", "Home", new { area = "" }, new { @class = "car-link" })</h2>
-                    <div>
-                        <span class="cat">FIAT</span>
-                        <p class="price ">₺500 <span>/Gün</span></p>
-                    </div>
-                    <p class="d-block">
-                        @Html.ActionLink("Rezervasyon", "BookVehicle", "Home", new { area = "" }, new { @class = "btn btn-primary" })
-                        @Html.ActionLink("Detaylar", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
-                    </p>
-                </div>
-            </div>
-        </div>
+                    <div class="text">
+                        <h2>@Html.ActionLink(vehicle.Model, "VehicleDetail", "Home", new { area = "" }, new { @class = "car-link" })</h2>
+                        <div>
 
-        <div class="col-md-4">
-            <div class="car-wrap  ">
-                <div class="img" style="background-image: url(../../Images/g60.jpg);">
-                </div>
-                <div class="text">
-                    <h2>@Html.ActionLink("Cruze", "VehicleDetail", "Home", new { area = "" }, new { @class = "car-link" })</h2>
-                    <div>
-                        <span class="cat">Cheverolet</span>
-                        <p class="price ">₺500 <span>/Gün</span></p>
+                            <span class="cat">@vehicle.Marka</span>
+                            <p class="price ">@vehicle.GunlukFiyat <span>/Gün</span></p>
+                        </div>
+
+                        <p class="d-block">
+                            @Html.ActionLink("Rezervasyon", "BookVehicle", "Home", new { ID = vehicle.ID }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Detaylar", "VehicleDetail", "Home", new { ID = vehicle.ID }, new { @class = "btn btn-success" })
+                        </p>
+                       
                     </div>
-                    <p class="d-block">
-                        @Html.ActionLink("Rezervasyon", "BookVehicle", "Home", new { area = "" }, new { @class = "btn btn-primary" })
-                        @Html.ActionLink("Detaylar", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
-                    </p>
+                    
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="car-wrap  ">
-                <div class="img" style="background-image: url(../../Images/car-ex.jpg);">
-                </div>
-                <div class="text">
-                    <h2>@Html.ActionLink("E30", "VehicleDetail", "Home", new { area = "" }, new { @class = "car-link" })</h2>
-                    <div>
-                        <span class="cat">BMW</span>
-                        <p class="price ">₺500 <span>/Gün</span></p>
-                    </div>
-                    <p class="d-block">
-                        @Html.ActionLink("Rezervasyon", "BookVehicle", "Home", new { area = "" }, new { @class = "btn btn-primary" })
-                        @Html.ActionLink("Detaylar", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="car-wrap  ">
-                <div class="img   " style="background-image: url(../../Images/car-ex.jpg);">
-                </div>
-                <div class="text">
-                    <h2>@Html.ActionLink("Camaro", "VehicleDetail", "Home", new { area = "" }, new { @class = "car-link" })</h2>
-                    <div>
-                        <span class="cat">Cheverolet</span>
-                        <p class="price ">₺500 <span>/Gün</span></p>
-                    </div>
-                    <p class="d-block">
-                        @Html.ActionLink("Rezervasyon", "BookVehicle", "Home", new { area = "" }, new { @class = "btn btn-primary" })
-                        @Html.ActionLink("Detaylar", "VehicleDetail", "Home", new { area = "" }, new { @class = "btn btn-success" })
-                    </p>
-                </div>
-            </div>
-        </div>
+        }
     </div>
 </div>
 <div class="pagination">

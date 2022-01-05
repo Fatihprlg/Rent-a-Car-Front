@@ -50,7 +50,15 @@
     color: white;
     opacity: 1;
 }
-
+.form-group input[type=text]:read-only {
+    background-color: rgba(255, 255, 255, 0.10);
+    color: white;
+    font-size: 12px;
+    width: 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 3px 5px;
+}
 .form-control {
     background-color: rgba(255, 255, 255, 0.10);
     color: white;
@@ -244,8 +252,8 @@
 }
 .car-wrap .text p.d-block {
     width: 100%;
-    
 }
+
 
 .car-wrap .text p.d-block a {
     width: 50%;
@@ -334,6 +342,34 @@
     border-radius:10px;
 }
 
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*About Us*/
+.about-bg {
+    display: flex;
+    color: white;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0 80px;
+    width: 100%;
+    height: 350px;
+    align-items: flex-end;
+}
+.about-text{
+    margin-top:350px;
+}
+.about-side-img{
+    background-size:cover;
+    border-radius:7px;
+    height:320px;
+}
 /*Admin Panel*/
 
 .notification-list {
@@ -648,9 +684,10 @@
             color: #dd504c;
         }
 
-
-
-
+form > div.modal-body {
+    display: flex;
+    flex-direction: column;
+}
 
 @media (max-width:960px){
     .services-wrap {

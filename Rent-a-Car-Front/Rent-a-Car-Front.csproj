@@ -45,7 +45,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\Rent-a-Car\Rent-a-Car\bin\Debug\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\Rent-a-Car\Rent-a-Car.DataAccess\bin\Debug\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Rent-a-Car">
+      <HintPath>..\..\Rent-a-Car\Rent-a-Car\bin\Debug\Rent-a-Car.dll</HintPath>
+    </Reference>
+    <Reference Include="Rent-a-Car.Commons">
+      <HintPath>..\..\Rent-a-Car\Rent-a-Car\bin\Debug\Rent-a-Car.Commons.dll</HintPath>
+    </Reference>
+    <Reference Include="Rent-a-Car.DataAccess">
+      <HintPath>..\..\Rent-a-Car\Rent-a-Car\bin\Debug\Rent-a-Car.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Rent-a-Car.Models">
+      <HintPath>..\..\Rent-a-Car\Rent-a-Car\bin\Debug\Rent-a-Car.Models.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -125,6 +143,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AracLazimContext.cs" />
+    <Compile Include="Models\RentInfo.cs" />
+    <Compile Include="Models\VehicleFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -208,7 +229,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\plot.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -232,10 +252,12 @@
     <Content Include="Views\Admin\Vehicles.cshtml" />
     <Content Include="Views\Admin\Users.cshtml" />
     <Content Include="Views\Admin\EditVehicle.cshtml" />
+    <Content Include="Views\Shared\Login.cshtml" />
+    <Content Include="Views\Admin\VehicleDetail.cshtml" />
+    <Content Include="Views\Admin\NewVehicle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

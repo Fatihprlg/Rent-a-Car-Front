@@ -1,32 +1,31 @@
-﻿@model Rent_a_Car.Models.Concerets.Vehicle
-@{
-    ViewBag.Title = "Araç Düzenle";
+﻿@{
+    ViewBag.Title = "Yeni Araç";
 }
 
 
 <div class="container rent-section">
-    <form action="/Admin/SaveVehicleChanges/@Model.ID" method="post" class="request-form rent-form bg-primary">
+    <form action="/Admin/AddVehicle" method="post" class="request-form rent-form bg-primary">
         <div>
             <div class="form-group">
                 <label for="" class="label">Fotoğraf</label>
                 <input required type="file" accept="image/*" name="resim" id="imgInp" class="form-control">
-                <img id="preview" src="~/@Model.Resim" alt="Resim Yükleyin" />
+                <img id="preview" src="#" alt="Resim Yükleyin" />
             </div>
             <div class="form-group">
                 <label for="" class="label">Plaka</label>
-                <input required type="text" class="form-control" name="plaka" value="@Model.Plaka">
+                <input required type="text" class="form-control" name="plaka">
             </div>
             <div class="form-group">
                 <label for="" class="label">Marka</label>
-                <input required type="text" class="form-control" name="marka" value="@Model.Marka">
+                <input required type="text" class="form-control" name="marka">
             </div>
             <div class="form-group">
                 <label for="" class="label">Yakıt</label>
-                <input required type="text" class="form-control" name="yakit" value="@Model.YakitTuru">
+                <input required type="text" class="form-control" name="yakit">
             </div>
             <div class="form-group">
                 <label for="" class="label">Koltuk Sayısı</label>
-                <input required type="number" class="form-control" name="koltuk" value="@Model.KoltukSayisi">
+                <input required type="number" class="form-control" name="koltuk">
             </div>
             @*<div class="form-group">
                 <label for="" class="label">Gereken Ehliyet Yaşı</label>
@@ -34,17 +33,17 @@
             </div>*@
             <div class="form-group">
                 <label for="" class="label">Bagaj Hacmi</label>
-                <input required type="number" class="form-control" name="bagaj" value="@Model.BagajHacmi">
+                <input required type="number" class="form-control" name="bagaj">
             </div>
             <div class="form-group">
                 <label for="" class="label">Vites Türü</label>
-                <input required type="text" class="form-control" name="vites" value="@Model.SanzimanTuru">
+                <input required type="text" class="form-control" name="vites">
             </div>
         </div>
         <div>
             <div class="form-group">
                 <label for="" class="label">Model</label>
-                <input required type="text"  class="form-control" name="model" value="@Model.Model">
+                <input required type="text"  class="form-control" name="model">
             </div>
             @*<div class="form-group">
                 <label for="" class="label">Model Yılı</label>
@@ -52,15 +51,15 @@
             </div>*@
             <div class="form-group">
                 <label for="" class="label">Kilometre</label>
-                <input required type="number" class="form-control" name="km" value="@Model.Kilometre">
+                <input required type="number" class="form-control" name="km">
             </div>
             <div class="form-group">
                 <label for="" class="label">Günlük KM Sınırı</label>
-                <input required type="number" class="form-control" name="gunlukKM" value="@Model.GunlukKMSinir">
+                <input required type="number" class="form-control" name="gunlukKM">
             </div>
             <div class="form-group">
                 <label for="" class="label">Günlük Fiyat</label>
-                <input required type="number" class="form-control" name="fiyat" value="@Model.GunlukFiyat">
+                <input required type="number" class="form-control" name="fiyat">
             </div>
             @*<div class="form-group">
                 <label for="" class="label">Yaş Sınırı</label>
@@ -68,7 +67,7 @@
             </div>*@
             <div class="form-group">
                 <label for="" class="label">Açıklama</label>
-                <textarea required type="text" rows="7" style="resize:none;" name="aciklama" class="form-control">@Model.Aciklama</textarea>
+                <textarea required type="text" rows="7" style="resize:none;" name="aciklama" class="form-control"></textarea>
             </div>
             <div class="form-group" style="margin-top:20px;">
                 <input type="submit" value="Kaydet" class="btn btn-success submit">
