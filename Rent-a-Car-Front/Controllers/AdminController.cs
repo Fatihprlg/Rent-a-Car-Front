@@ -9,13 +9,106 @@ namespace Rent_a_Car_Front.Controllers
     public class AdminController : Controller
     {
         // GET: Admin
-        public ActionResult AdminPanel()
+                public ActionResult AdminPanel()
         {
-            return View();
+            if (Logged)
+            {
+                IDictionary<int, int> rentCounts = new Dictionary<int, int>();
+               
+                using(var logic = new RentLogic())
+                {
+                    rentCounts = logic.GetRentCountsByMonths();
+                }
+                return View(rentCounts);
+            }
+            else
+            {
+                return View("Login");
+            }
         }
         public ActionResult Reservations()
         {
-            return View();
+            if (Logged)
+            {
+                IList<RentInfo> rentInfos = new List<RentInfo>();
+                IList<Rent> rents = new List<Rent>();
+                IList<Vehicle> vehicles = SelectAllVehicles();
+                using (var logic = new RentLogic())
+                {
+                    rents = logic.SelecAllRents();
+                    foreach(var r in rents)
+                    {
+                        Vehicle v = vehicles.Where(x => x.ID == r.AracID).FirstOrDefault();
+                        Customer c = SelectCustomerByID(r.MusteriID);
+                        RentInfo temp = new RentInfo()
+                        {
+                            RentID = r.IslemID,
+                            VehiclePlateNum = v.Plaka,
+                            VehicleModel = v.Model,
+                            Picture = v.Resim,
+                            CustomerEmail = c.Email,
+                            StartDate = r.KiralamaBaslangici,
+                            EndDate = r.KiralamaBitisi,
+                            TotalPrice = r.AlinanUcret,
+                            CustomerAge = c.Yas,
+                            LicenceAge = c.EhliyetYasi,
+                            CustomerFullName = c.Isim + " " + c.Soyisim
+                        };
+                        if (r.Durum == null) temp.State = "Bekliyor";
+                        else if (r.Durum == true) temp.State = "Onaylandı";
+                        else temp.State = "Reddedildi";
+                        rentInfos.Add(temp);
+                    }
+
+                }
+                return View(rentInfos);
+            }
+            else
+            {
+                return View("Login");
+            }
+        }
+
+        public ActionResult AcceptRequest(int id)
+        {
+            try
+            {
+                bool isSuccess;
+                using (var logic = new RentLogic())
+                {
+                    Rent rent = new Rent()
+                    {
+                        IslemID = id,
+                        Durum = true
+                    };
+                    isSuccess = logic.UpdateRent(rent);
+                }
+                return RedirectToAction("Reservations");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public ActionResult RejectRequest(int id)
+        {
+            try
+            {
+                using (var logic = new RentLogic())
+                {
+                    Rent rent = new Rent()
+                    {
+                        IslemID = id,
+                        Durum = true
+                    };
+                    logic.UpdateRent(rent);
+                }
+                return RedirectToAction("Reservations");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
         public ActionResult Vehicles()
         {
